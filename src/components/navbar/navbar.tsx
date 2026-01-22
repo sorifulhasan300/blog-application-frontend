@@ -26,7 +26,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { ModeToggle } from "./layout/Toggler";
+import { ModeToggle } from "../layout/Toggler";
 
 interface MenuItem {
   title: string;
