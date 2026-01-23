@@ -14,8 +14,10 @@ export const userServices = {
       if (session === null) {
         return { data: null, error: "cookies not found" };
       }
+      console.log(session);
       return { data: session, error: null };
     } catch (error) {
+      console.log(error);
       return { data: null, error: "something was wrong" };
     }
   },
