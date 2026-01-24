@@ -1,10 +1,11 @@
+import { env } from "@/env";
 import { cookies } from "next/headers";
 
 export const userServices = {
   getSession: async function () {
     try {
       const cookiesData = await cookies();
-      const res = await fetch("http://localhost:5000/api/auth/get-session", {
+      const res = await fetch(env.SESSION_URL as string, {
         headers: {
           Cookie: cookiesData.toString(),
         },
@@ -14,10 +15,8 @@ export const userServices = {
       if (session === null) {
         return { data: null, error: "cookies not found" };
       }
-      console.log(session);
       return { data: session, error: null };
     } catch (error) {
-      console.log(error);
       return { data: null, error: "something was wrong" };
     }
   },

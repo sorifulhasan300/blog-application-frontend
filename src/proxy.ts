@@ -1,0 +1,11 @@
+import { NextRequest, NextResponse } from "next/server";
+
+export const proxy = (request: NextRequest) => {
+  console.log(request.url);
+  //   return NextResponse.redirect(new URL("/home", request.url));
+  return NextResponse.next();
+};
+
+export const config = {
+  matcher: "/",
+};

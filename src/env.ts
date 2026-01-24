@@ -1,6 +1,7 @@
 import * as z from "zod";
 import { createEnv } from "@t3-oss/env-nextjs";
-export const envs = createEnv({
+
+export const env = createEnv({
   server: {
     DATABASE_URL: z.url(),
     SESSION_URL: z.url(),
