@@ -1,5 +1,18 @@
-import React from "react";
+export const userRoutes = {
+  user: {
+    name: "user",
+    email: "user@example.com",
+    avatar: "/avatars/shadcn.jpg",
+  },
 
-export default function UserRoutes() {
-  return <div>userRoutes</div>;
-}
+  navMain: [
+    {
+      title: "My Blog",
+      url: "#",
+    },
+    {
+      title: "Account",
+      url: "#",
+    },
+  ],
+};
