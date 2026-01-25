@@ -7,12 +7,12 @@ export const adminRoutes = {
 
   navMain: [
     {
-      title: "Manage Blog",
-      url: "#",
+      title: "Manage Blogs",
+      url: "/dashboard/manage-blogs",
     },
     {
       title: "Manage Users",
-      url: "#",
+      url: "/dashboard/manage-users",
     },
   ],
 };
