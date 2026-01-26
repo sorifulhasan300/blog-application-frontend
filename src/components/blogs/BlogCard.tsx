@@ -10,6 +10,7 @@ import {
 import { Post } from "@/types/post.type";
 import { Badge } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 interface BlogCardProps {
   post: Post;
 }
@@ -32,7 +33,11 @@ export function BlogCard({ post }: BlogCardProps) {
         <CardDescription>{post.content}</CardDescription>
       </CardHeader>
       <CardFooter>
-        <Button className="w-full">View post</Button>
+        <Button asChild>
+          <Link href={`/blogs/${post.id}`} className="w-full">
+            View post
+          </Link>
+        </Button>
       </CardFooter>
     </Card>
   );

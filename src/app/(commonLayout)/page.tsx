@@ -1,4 +1,4 @@
-import { BlogCard } from "@/components/ui/blogcard";
+import { BlogCard } from "@/components/blogs/BlogCard";
 import { Post } from "@/types/post.type";
 import Blogs from "./blogs/Blogs";
 
