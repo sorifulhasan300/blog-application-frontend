@@ -7,19 +7,21 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { BlogPost } from "@/types/blog.type";
 import { Post } from "@/types/post.type";
 import { Badge } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-interface BlogCardProps {
-  post: Post;
-}
-export function BlogCard({ post }: BlogCardProps) {
+
+export function BlogCard({ post }: { post: BlogPost | null }) {
+  if (!post) {
+    return "Post is not found";
+  }
   return (
     <Card className="relative mx-auto w-full max-w-sm pt-0">
       <div className="absolute inset-0 z-30 aspect-video bg-black/35" />
       <Image
-        src={post?.thumnail}
+        src={post?.thumbnail}
         width={40}
         height={40}
         alt="Event cover"

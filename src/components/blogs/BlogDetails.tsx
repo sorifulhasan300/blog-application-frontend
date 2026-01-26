@@ -4,17 +4,12 @@ import Image from "next/image";
 import { Calendar, Eye } from "lucide-react";
 import { Badge } from "../ui/badge";
 import { Separator } from "../ui/separator";
-type BlogDetailsProps = {
-  data: {
-    title: string;
-    thumbnail: string;
-    tags: string[];
-    views: number;
-    createdAt: string;
-    content: string | null;
-  };
-};
-export default function BlogDetails({ data }: BlogDetailsProps) {
+import { BlogPost } from "@/types/blog.type";
+
+export default function BlogDetails({ data }: { data: BlogPost | null }) {
+  if (!data) {
+    return "blog not found";
+  }
   const { title, thumbnail, tags, views, createdAt, content } = data;
 
   return (
@@ -22,7 +17,7 @@ export default function BlogDetails({ data }: BlogDetailsProps) {
       {/* Thumbnail */}
       <div className="relative w-full h-[320px]">
         <Image
-          src={thumbnail}
+          src={""}
           alt={title}
           fill
           className="object-cover rounded-t-lg"

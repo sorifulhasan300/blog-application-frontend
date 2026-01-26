@@ -1,6 +1,5 @@
 import BlogDetails from "@/components/blogs/BlogDetails";
 import { fetchPostById } from "@/services/post.service";
-import React from "react";
 
 export default async function PostDetailsPage({
   params,
@@ -8,10 +7,12 @@ export default async function PostDetailsPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const postDetails = await fetchPostById(id);
+  const post = await fetchPostById(id);
+  //   console.log("single post", post.data);
+
   return (
     <div>
-      <BlogDetails data={postDetails?.data}></BlogDetails>
+      <BlogDetails data={post.data}></BlogDetails>
     </div>
   );
 }

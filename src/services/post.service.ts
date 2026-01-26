@@ -1,4 +1,5 @@
 import { env } from "@/env";
+import { BlogPost } from "@/types/blog.type";
 
 export const fetchPost = async () => {
   const url = env.DATABASE_URL;
@@ -11,14 +12,16 @@ export const fetchPost = async () => {
   }
 };
 
-export const fetchPostById = async (id: string) => {
+export const fetchPostById = async (
+  id: string,
+): Promise<{ data: BlogPost | null; error: string | null }> => {
   const url = env.DATABASE_URL;
   try {
     const response = await fetch(`${url}/post/${id}`);
     const data = await response.json();
 
-    return { data: data, error: null };
+    return { data: data.data, error: null };
   } catch (error) {
-    console.log(error);
+    return { data: null, error: (error as Error).message };
   }
 };
