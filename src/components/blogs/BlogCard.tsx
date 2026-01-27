@@ -8,7 +8,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { BlogPost } from "@/types/blog.type";
-import { Post } from "@/types/post.type";
 import { Badge } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";

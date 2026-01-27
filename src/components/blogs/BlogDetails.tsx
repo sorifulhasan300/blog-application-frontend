@@ -15,9 +15,9 @@ export default function BlogDetails({ data }: { data: BlogPost | null }) {
   return (
     <Card className="max-w-4xl mx-auto">
       {/* Thumbnail */}
-      <div className="relative w-full h-[320px]">
+      <div className="relative w-full h-80">
         <Image
-          src={""}
+          src={thumbnail || ""}
           alt={title}
           fill
           className="object-cover rounded-t-lg"

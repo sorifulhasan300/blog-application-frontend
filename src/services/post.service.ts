@@ -1,18 +1,18 @@
 import { env } from "@/env";
 import { BlogPost } from "@/types/blog.type";
 
-export const fetchPost = async () => {
+const fetchBlogs = async () => {
   const url = env.DATABASE_URL;
   try {
     const data = await fetch(`${url}/post/all`);
     const posts = await data.json();
     return { data: posts.data, error: null };
   } catch (error) {
-    console.log(error);
+    return { data: null, error: (error as Error).message };
   }
 };
 
-export const fetchPostById = async (
+const fetchBlogById = async (
   id: string,
 ): Promise<{ data: BlogPost | null; error: string | null }> => {
   const url = env.DATABASE_URL;
@@ -25,3 +25,5 @@ export const fetchPostById = async (
     return { data: null, error: (error as Error).message };
   }
 };
+
+export const blogService = { fetchBlogs, fetchBlogById };
