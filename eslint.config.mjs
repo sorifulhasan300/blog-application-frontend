@@ -13,6 +13,24 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
+  {
+    extends: ["next/core-web-vitals"],
+    rules: {
+      "react/no-children-prop": [
+        "warn",
+        {
+          allowFunctions: false,
+        },
+      ],
+      "jsx-a11y/aria-role": [
+        "error",
+        {
+          allowedInvalidRoles: [],
+          ignoreNonDOM: false,
+        },
+      ],
+    },
+  },
 ]);
 
 export default eslintConfig;
